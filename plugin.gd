@@ -2,7 +2,8 @@
 extends EditorPlugin
 
 func _enter_tree() -> void:
-	add_autoload_singleton("DebugMenu", "res://addons/debug_menu/debug_menu.tscn")
+	if not Engine.has_singleton("DebugMenu"):
+		add_autoload_singleton("DebugMenu", "res://addons/debug_menu/debug_menu.tscn")
 
 	# FIXME: This appears to do nothing.
 #	if not ProjectSettings.has_setting("application/config/version"):
